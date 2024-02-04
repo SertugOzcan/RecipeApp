@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* HEADER STYLES */
@@ -16,12 +16,11 @@
   align-items: center;
   font-size: 1.6rem;
 }
+
 .navigation-bar .menu {
   display: flex;
-  align-items: center; /* Diğer öğeleri dikey olarak hizala */
+  align-items: center;
 }
-
-
 
 .navigation-bar .menu a,
 .navigation-bar .menu button {
@@ -43,7 +42,6 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-
 .navigation-bar .menu button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -53,13 +51,13 @@
   text-align: center;
   padding: 2rem 3rem;
 }
+
 .home p {
   font-size: 1.2rem;
   margin-top: 1rem;
 }
 
 /* RECIPE LIST STYLES */
-
 .recipe-list {
   display: flex;
   flex-wrap: wrap;
@@ -79,6 +77,7 @@
   justify-content: space-between;
   gap: 10px;
 }
+
 .recipe-card img {
   width: 100%;
   border-radius: 8px;
@@ -89,7 +88,6 @@
 }
 
 /* RECIPE FORM STYLES */
-
 .new-recipe-form {
   display: flex;
   flex-direction: column;
@@ -102,7 +100,6 @@
 .new-recipe-form input,
 .new-recipe-form textarea {
   padding: 0.5rem;
-  /* font-size: 1rem; */
 }
 
 .new-recipe-form button {
@@ -133,7 +130,6 @@ textarea {
 }
 
 /* delete button */
-
 .btn-delete {
   margin: 0 auto;
   background-color: #333;
@@ -157,96 +153,142 @@ textarea {
   background-color: #333;
 }
 
-.slider-container {
-  width: 50px;
-  height: 25px;
-  background-color: lightgray;
-  border-radius: 25px;
-  cursor: pointer;
-  position: relative;
-  transition: background-color 0.3s ease;
-}
-
-.slider-button {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: white;
+.toggle-checkbox {
   position: absolute;
-  top: 2.5px;
-  left: 2.5px;
-  transition: left 0.3s ease;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
-.slider-container.dark {
-  background-color: darkgray;
+.toggle-slot {
+  font-size: 10px;
+  position: relative;
+  height: 3.5em;
+  width: 7em;
+  border: 0px solid transparent;
+  border-radius: 10em;
+  background-color: white;
+  transition: background-color 250ms;
 }
 
-.slider-container.dark .slider-button {
-  left: calc(100% - 22.5px);
+.toggle-checkbox:checked ~ .toggle-slot {
+  background-color: #374151;
+}
+
+.toggle-button {
+  transform: translate(0.3em, 0.25em);
+  position: absolute;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  background-color: #ffeccf;
+  box-shadow: inset 0px 0px 0px 0.75em #ffbb52;
+  transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+  background-color: #485367;
+  box-shadow: inset 0px 0px 0px 0.75em white;
+  transform: translate(3.65em, 0.25em);
+}
+
+.sun-icon {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  color: #ffbb52;
+}
+
+.sun-icon-wrapper {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  opacity: 1;
+  transform: translate(2em, 2em) rotate(15deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .sun-icon-wrapper {
+  opacity: 0;
+  transform: translate(3em, 2em) rotate(0deg);
+}
+
+.moon-icon {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  color: white;
+}
+
+.moon-icon-wrapper {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  opacity: 0;
+  transform: translate(11em, 2em) rotate(0deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .moon-icon-wrapper {
+  opacity: 1;
+  transform: translate(2em, 2em) rotate(-15deg);
 }
 
 /* DARK MODE ------------------------------------------------- */
 
-/* Dark moda geçildiğinde yazı ve buton renklerini ayarla */
+
 .dark .navigation-bar {
   background-color: #333;
-  color: #fff; /* Yazı rengini beyaz yap */
+  color: #fff;
 }
 
 .dark .navigation-bar .menu a,
 .dark .navigation-bar .menu button {
-  color: #fff; /* Linklerin ve butonların metin rengini beyaz yap */
-  border-color: #fff; /* Buton kenar rengini beyaz yap */
+  color: #fff;
+  border-color: #fff;
 }
 
 .dark .navigation-bar .menu a:hover,
 .dark .navigation-bar .menu button:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Üzerine gelindiğinde arka plan rengini ayarla */
-  border-color: rgba(255, 255, 255, 0.1); /* Üzerine gelindiğinde kenar rengini ayarla */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .dark .slider-container {
-  background-color: darkgray; /* Switch arka plan rengini ayarla */
+  background-color: darkgray;
 }
 
 .dark .slider-container.dark .slider-button {
   left: calc(100% - 22.5px);
-  background-color: rgb(71, 71, 71); /* Switch buton rengini ayarla */
+  background-color: rgb(71, 71, 71);
 }
 
 .dark .slider-container.light .slider-button {
   left: 2.5px;
-  background-color: rgb(216, 216, 216); /* Switch buton rengini ayarla */
+  background-color: rgb(216, 216, 216);
 }
 
-/* Dark moda geçildiğinde yazı ve buton renklerini ayarla */
 .dark .recipe-card,
-
 .dark .btn-delete {
-  background-color: #47464684; /* Arka plan rengini koyu gri yap */
-  color: #fff; /* Metin rengini beyaz yap */
+  background-color: #47464684;
+  color: #fff;
 }
 
 .dark .btn-delete {
-  background-color: #20202084; /* Arka plan rengini koyu gri yap */
-  color: #fff; /* Metin rengini beyaz yap */
-
+  background-color: #20202084;
+  color: #fff;
 }
 
 .dark .btn-delete:hover {
   background-color: rgb(102, 102, 102);
 }
 
-/* Ana sayfadaki yazılar ve butonların renkleri dark moda geçildiğinde değişsin */
 .dark .home {
-  color: #fff; /* Ana sayfadaki yazıların metin rengini beyaz yap */
+  color: #fff;
 }
-
-
-
-
-/* ANIMATED ADD RECIPE BUTTON  */
 
 .dark .btn-conteiner {
   display: flex;
@@ -257,13 +299,15 @@ textarea {
   --color-shadow: #1b1a1a80;
 }
 
+
+/* ANIMATED ADD RECIPE BUTTON  */
 .btn-conteiner {
   display: flex;
   justify-content: center;
   --color-text: #ffffff;
-  --color-background: #13ff46;
-  --color-outline: #14ff1480;
-  --color-shadow: #00000080;
+  --color-background: #0ef;
+  --color-outline: #2c4766;
+  --color-shadow: #1e3045;
 }
 
 .btn-content {
@@ -281,7 +325,8 @@ textarea {
   box-shadow: 0 0 0.2em 0 var(--color-background);
 }
 
-.btn-content:hover, .btn-content:focus {
+.btn-content:hover,
+.btn-content:focus {
   transition: 0.5s;
   -webkit-animation: btn-content 1s;
   animation: btn-content 1s;
@@ -307,8 +352,7 @@ textarea {
   position: relative;
   top: 6%;
 }
-  
-/* SVG */
+
 #arrow-icon-one {
   transition: 0.4s;
   transform: translateX(-60%);
@@ -333,33 +377,29 @@ textarea {
   animation: color_anim 1s infinite 0.4s;
 }
 
-/* SVG animations */
 @keyframes color_anim {
   0% {
-    fill: white;
+      fill: white;
   }
-
   50% {
-    fill: var(--color-background);
+      fill: var(--color-background);
   }
-
   100% {
-    fill: white;
+      fill: white;
   }
 }
 
-/* Button animations */
 @-webkit-keyframes btn-content {
   0% {
-    outline: 0.2em solid var(--color-background);
-    outline-offset: 0;
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
   }
 }
 
 @keyframes btn-content {
   0% {
-    outline: 0.2em solid var(--color-background);
-    outline-offset: 0;
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
   }
 }
 
