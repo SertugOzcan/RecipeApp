@@ -1,0 +1,365 @@
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER STYLES */
+.navigation-bar {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+}
+.navigation-bar .menu {
+  display: flex;
+  align-items: center; /* Diğer öğeleri dikey olarak hizala */
+}
+
+
+
+.navigation-bar .menu a,
+.navigation-bar .menu button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 2rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navigation-bar .menu a:hover,
+.navigation-bar .menu button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.navigation-bar .menu button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* HOME PAGE STYLES */
+.home {
+  text-align: center;
+  padding: 2rem 3rem;
+}
+.home p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* RECIPE LIST STYLES */
+
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+/* RECIPE CARD STYLES */
+.recipe-card {
+  border: 3px solid #ddd;
+  padding: 1.2rem;
+  border-radius: 8px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+.recipe-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.recipe-info h3 {
+  margin: 0.5rem 0;
+}
+
+/* RECIPE FORM STYLES */
+
+.new-recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.new-recipe-form input,
+.new-recipe-form textarea {
+  padding: 0.5rem;
+  /* font-size: 1rem; */
+}
+
+.new-recipe-form button {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.new-recipe-form .input-err {
+  font-size: 12px;
+  font-weight: 800;
+  color: brown;
+  text-align: left;
+  margin-top: 0;
+}
+
+.new-recipe-form .form-control {
+  width: 100%;
+}
+
+.new-recipe-form .form-control > input,
+textarea {
+  width: 100%;
+}
+
+/* delete button */
+
+.btn-delete {
+  margin: 0 auto;
+  background-color: #333;
+  color: #fff;
+  padding: 0.2rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.6rem;
+}
+
+.btn-delete:hover {
+  background-color: brown;
+  cursor: pointer;
+}
+
+.light {
+  background-color: #fff;
+}
+
+.dark {
+  background-color: #333;
+}
+
+.slider-container {
+  width: 50px;
+  height: 25px;
+  background-color: lightgray;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.slider-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  transition: left 0.3s ease;
+}
+
+.slider-container.dark {
+  background-color: darkgray;
+}
+
+.slider-container.dark .slider-button {
+  left: calc(100% - 22.5px);
+}
+
+/* DARK MODE ------------------------------------------------- */
+
+/* Dark moda geçildiğinde yazı ve buton renklerini ayarla */
+.dark .navigation-bar {
+  background-color: #333;
+  color: #fff; /* Yazı rengini beyaz yap */
+}
+
+.dark .navigation-bar .menu a,
+.dark .navigation-bar .menu button {
+  color: #fff; /* Linklerin ve butonların metin rengini beyaz yap */
+  border-color: #fff; /* Buton kenar rengini beyaz yap */
+}
+
+.dark .navigation-bar .menu a:hover,
+.dark .navigation-bar .menu button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Üzerine gelindiğinde arka plan rengini ayarla */
+  border-color: rgba(255, 255, 255, 0.1); /* Üzerine gelindiğinde kenar rengini ayarla */
+}
+
+.dark .slider-container {
+  background-color: darkgray; /* Switch arka plan rengini ayarla */
+}
+
+.dark .slider-container.dark .slider-button {
+  left: calc(100% - 22.5px);
+  background-color: rgb(71, 71, 71); /* Switch buton rengini ayarla */
+}
+
+.dark .slider-container.light .slider-button {
+  left: 2.5px;
+  background-color: rgb(216, 216, 216); /* Switch buton rengini ayarla */
+}
+
+/* Dark moda geçildiğinde yazı ve buton renklerini ayarla */
+.dark .recipe-card,
+
+.dark .btn-delete {
+  background-color: #47464684; /* Arka plan rengini koyu gri yap */
+  color: #fff; /* Metin rengini beyaz yap */
+}
+
+.dark .btn-delete {
+  background-color: #20202084; /* Arka plan rengini koyu gri yap */
+  color: #fff; /* Metin rengini beyaz yap */
+
+}
+
+.dark .btn-delete:hover {
+  background-color: rgb(102, 102, 102);
+}
+
+/* Ana sayfadaki yazılar ve butonların renkleri dark moda geçildiğinde değişsin */
+.dark .home {
+  color: #fff; /* Ana sayfadaki yazıların metin rengini beyaz yap */
+}
+
+
+
+
+/* ANIMATED ADD RECIPE BUTTON  */
+
+.dark .btn-conteiner {
+  display: flex;
+  justify-content: center;
+  --color-text: #ffffff;
+  --color-background: #020202;
+  --color-outline: #20202080;
+  --color-shadow: #1b1a1a80;
+}
+
+.btn-conteiner {
+  display: flex;
+  justify-content: center;
+  --color-text: #ffffff;
+  --color-background: #13ff46;
+  --color-outline: #14ff1480;
+  --color-shadow: #00000080;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  padding: 5px 30px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: 1s;
+  border-radius: 100px;
+  box-shadow: 0 0 0.2em 0 var(--color-background);
+}
+
+.btn-content:hover, .btn-content:focus {
+  transition: 0.5s;
+  -webkit-animation: btn-content 1s;
+  animation: btn-content 1s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+  transition: 0.5s;
+  margin-right: 0px;
+  transform: scale(0.6);
+}
+
+.btn-content:hover .icon-arrow {
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+.icon-arrow {
+  width: 20px;
+  margin-left: 15px;
+  position: relative;
+  top: 6%;
+}
+  
+/* SVG */
+#arrow-icon-one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+#arrow-icon-two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.btn-content:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-content:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: var(--color-background);
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+/* Button animations */
+@-webkit-keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}
+
+@keyframes btn-content {
+  0% {
+    outline: 0.2em solid var(--color-background);
+    outline-offset: 0;
+  }
+}
+
